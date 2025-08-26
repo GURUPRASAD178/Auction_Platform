@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
     });
 
     socket.on("placeBid", async ({ auctionId, userId, bidAmount }) => {
-        // DB logic here (simplified for now)
+        // TODO: Update DB here
         io.to(auctionId).emit("newBid", { bidAmount, userId });
     });
 
