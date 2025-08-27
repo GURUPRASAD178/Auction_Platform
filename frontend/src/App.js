@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AuctionList from "./pages/AuctionList";
-import AuctionForm from "./pages/AuctionForm";
-import AuctionDetail from "./pages/AuctionDetail";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import AuctionList from './components/AuctionList';
+import CreateAuction from './components/CreateAuction';
 
 function App() {
   return (
     <Router>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+          <Link className="navbar-brand" to="/">Auction Platform</Link>
+          <div className="navbar-nav">
+            <Link className="nav-link" to="/">Auctions</Link>
+            <Link className="nav-link" to="/create">Create Auction</Link>
+          </div>
+        </div>
+      </nav>
+
       <Routes>
         <Route path="/" element={<AuctionList />} />
-        <Route path="/auction/new" element={<AuctionForm />} />
-        <Route path="/auction/:id" element={<AuctionDetail />} />
-        <Route path="/auction/edit/:id" element={<AuctionForm />} />
+        <Route path="/create" element={<CreateAuction />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
